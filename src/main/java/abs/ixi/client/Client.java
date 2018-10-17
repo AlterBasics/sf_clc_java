@@ -90,7 +90,7 @@ public abstract class Client extends AbstractPacketCollector {
 				if (output.isError()) {
 					throw new RuntimeException("login failed");
 				}
-
+				
 			} else {
 				System.out.println("Client is not yet initilized. Failed to start. Exiting...");
 				throw new ClientStartupException("IXI client is not yet initilized");
