@@ -90,7 +90,7 @@ public abstract class Client extends AbstractPacketCollector {
 				if (output.isError()) {
 					throw new RuntimeException("login failed");
 				}
-				
+
 			} else {
 				System.out.println("Client is not yet initilized. Failed to start. Exiting...");
 				throw new ClientStartupException("IXI client is not yet initilized");
@@ -118,8 +118,6 @@ public abstract class Client extends AbstractPacketCollector {
 
 		String xmppServerIP = this.connectionProps.getProperty(PropNames.XMPP_SERVER_IP);
 		int xmppServerPort = ObjectUtils.parseToInt(this.connectionProps.getProperty(PropNames.XMPP_SERVER_PORT));
-		String mediaServerIP = this.connectionProps.getProperty(PropNames.MEDIA_SERVER_IP);
-		int mediaServerPort = ObjectUtils.parseToInt(this.connectionProps.getProperty(PropNames.MEDIA_SERVER_PORT));
 		int hbf = ObjectUtils.parseToInt(this.connectionProps.getProperty(PropNames.HEART_BEAT_FREQUENCY));
 		int replyTimeOut = ObjectUtils.parseToInt(this.connectionProps.getProperty(PropNames.SERVER_REPLY_TIMEOUT));
 

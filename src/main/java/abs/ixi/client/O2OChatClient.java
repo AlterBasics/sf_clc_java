@@ -204,12 +204,16 @@ public class O2OChatClient extends Client {
 			List<JID> members = new ArrayList<>();
 			members.add(new JID("yogi", "alterbasics.com"));
 			members.add(new JID("ashutosh", "alterbasics.com"));
-			//Platform.getInstance().getUserManager().createPrivateGroup("dharmuDemotest", members);
-			
-			//Platform.getInstance().getUserManager().sendGetChatRoomInfoRequest(new JID("dharmutest-2afe5d9e5@chat.alterbasics.com"));
-			
-		//	Platform.getInstance().getUserManager().sendAddChatRoomMemberRequest(new JID("dharmutest-b78ff7fbd@chat.alterbasics.com"), new JID("ashutosh", "alterbasics.com"));
-			//Platform.getInstance().shutdown();
+			// Platform.getInstance().getUserManager().createPrivateGroup("dharmuDemotest",
+			// members);
+
+			// Platform.getInstance().getUserManager().sendGetChatRoomInfoRequest(new
+			// JID("dharmutest-2afe5d9e5@chat.alterbasics.com"));
+
+			// Platform.getInstance().getUserManager().sendAddChatRoomMemberRequest(new
+			// JID("dharmutest-b78ff7fbd@chat.alterbasics.com"), new
+			// JID("ashutosh", "alterbasics.com"));
+			// Platform.getInstance().shutdown();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
