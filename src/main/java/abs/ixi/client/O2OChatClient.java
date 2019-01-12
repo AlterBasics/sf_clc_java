@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import abs.ixi.client.core.Platform;
 import abs.ixi.client.net.ConnectionConfigBuilder;
 import abs.ixi.client.util.StringUtils;
 import abs.ixi.client.util.UUIDGenerator;

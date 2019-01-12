@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import abs.ixi.client.core.Platform;
 import abs.ixi.client.net.ConnectionConfigBuilder;
 import abs.ixi.client.util.UUIDGenerator;
 import abs.ixi.client.xmpp.JID;

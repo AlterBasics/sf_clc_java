@@ -1,6 +1,6 @@
 package abs.ixi.client;
 
-import abs.ixi.client.core.Platform;
+import abs.ixi.client.net.NetworkException;
 
 /**
  * Stringflow Command Line Client
@@ -14,6 +14,12 @@ public class CommandLineClient {
 
 	public static void main(String[] args) {
 		Platform.initialize(new JavaSDKInitializer(SERVER, PORT));
+
+		try {
+			Platform.getInstance().login("yogi", "alterbasics.com", "default123");
+		} catch (NetworkException e) {
+			System.out.println(e);
+		}
 	}
 
 }

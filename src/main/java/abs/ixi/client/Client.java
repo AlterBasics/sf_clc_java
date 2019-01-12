@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 
 import abs.ixi.client.core.AbstractPacketCollector;
 import abs.ixi.client.core.Packet;
-import abs.ixi.client.core.Platform;
 import abs.ixi.client.io.StreamNegotiator.NegotiationResult;
 import abs.ixi.client.io.XMPPStreamManager;
 import abs.ixi.client.lang.Duration;
@@ -83,9 +82,8 @@ public abstract class Client extends AbstractPacketCollector {
 
 				ConnectionManager.getInstance().setNetworkConnectivity(true);
 
-				NegotiationResult output = Platform.getInstance().getUserManager().login(
-						this.clientConfig.getUsername(), this.clientConfig.getPassword(),
-						this.clientConfig.getDomain());
+				NegotiationResult output = Platform.getInstance().login(this.clientConfig.getUsername(),
+						this.clientConfig.getPassword(), this.clientConfig.getDomain());
 
 				if (output.isError()) {
 					throw new RuntimeException("login failed");
