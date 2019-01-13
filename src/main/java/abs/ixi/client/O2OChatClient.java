@@ -7,40 +7,20 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import abs.ixi.client.net.ConnectionConfigBuilder;
 import abs.ixi.client.util.StringUtils;
 import abs.ixi.client.util.UUIDGenerator;
 import abs.ixi.client.xmpp.JID;
 
-public class O2OChatClient extends Client {
+/**
+ * This client is defunct
+ * 
+ * @author Yogi
+ *
+ */
+public class O2OChatClient {
 	private static final Logger LOGGER = Logger.getLogger(O2OChatClient.class.getName());
 
-	public static void main(String[] args) {
-		O2OChatClient client = new O2OChatClient();
-
-		try {
-			client.init();
-			client.start();
-
-		} catch (ClientStartupException e) {
-			LOGGER.log(Level.WARNING, "Failed to start O2OChat client", e);
-
-			if (client != null) {
-				client.stop();
-			}
-
-			System.exit(1);
-		}
-	}
-
-	@Override
-	public void init() throws ClientStartupException {
-		super.init();
-	}
-
-	@Override
 	public void start() throws ClientStartupException {
-		super.start();
 		readyToChat();
 
 		try {
@@ -233,16 +213,6 @@ public class O2OChatClient extends Client {
 		}
 	}
 
-	@Override
-	protected ConnectionConfigBuilder getConnectionConfigBuilder() {
-		return new ConnectionConfigBuilder();
-	}
-
-	@Override
-	protected ClientConfigBuilder getClientConfigBuilder() {
-		return new ClientConfigBuilder();
-	}
-
 	private class O2OChatter implements Runnable {
 		@Override
 		public void run() {
@@ -250,7 +220,7 @@ public class O2OChatClient extends Client {
 				LOGGER.log(Level.FINE, "Whom do you want to chat :");
 				String user = reader.readLine();
 
-				JID receiver = new JID(user, clientConfig.getDomain());
+				JID receiver = null;
 
 				ChatManager chatManager = Platform.getInstance().getChatManager();
 
