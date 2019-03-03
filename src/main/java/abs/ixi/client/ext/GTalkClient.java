@@ -16,80 +16,80 @@ import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
 
 public class GTalkClient {
-    private String user;
-    private String pwd;
-    private int port;
+	private String user;
+	private String pwd;
+	private int port;
 
-    public GTalkClient(String user, String pwd, int port) {
-	this.user = user;
-	this.pwd = pwd;
-	this.port = port;
-    }
-
-    public static void main(String[] args) {
-	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-	try {
-	    System.out.println("What is the server port:");
-	    int port = Integer.parseInt(reader.readLine());
-
-	    System.out.println("User Name:");
-	    String userName = reader.readLine();
-
-	    String passwd = "07@mmini90";
-
-	    GTalkClient client = new GTalkClient(userName, passwd, port);
-
-	    client.init();
-
-	} catch (NumberFormatException e) {
-	    System.out.println("Failed to parse port string");
-	} catch (Exception e) {
-	    e.printStackTrace();
+	public GTalkClient(String user, String pwd, int port) {
+		this.user = user;
+		this.pwd = pwd;
+		this.port = port;
 	}
-    }
 
-    private void init() throws XMPPException, SmackException, IOException {
-	System.out.println("Initializing XMPP Command Line client...");
+	public static void main(String[] args) {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-	XMPPTCPConnectionConfiguration.Builder config = XMPPTCPConnectionConfiguration.builder();
-	config.setSecurityMode(ConnectionConfiguration.SecurityMode.required);
+		try {
+			System.out.println("What is the server port:");
+			int port = Integer.parseInt(reader.readLine());
 
-	config.setUsernameAndPassword(this.user, this.pwd);
-	config.setServiceName("gmail.com");
-	config.setHost("talk.google.com");
-	config.setPort(port);
-	config.setDebuggerEnabled(true);
-	// config.setSecurityMode(SecurityMode.disabled);
-	config.setConnectTimeout(1000 * 60 * 100);
+			System.out.println("User Name:");
+			String userName = reader.readLine();
 
-	AbstractXMPPConnection connection = new XMPPTCPConnection(config.build());
-	connection.connect();
-	System.out.println("Connected successfully");
+			String passwd = "07@mmini90";
 
-	connection.login();
+			GTalkClient client = new GTalkClient(userName, passwd, port);
 
-	Chat chat = ChatManager.getInstanceFor(connection).createChat("akhil7490@gmail.com", new ChatMessageListener() {
+			client.init();
 
-	    @Override
-	    public void processMessage(Chat arg0, Message msg) {
-		System.out.println("Received message: " + msg);
+		} catch (NumberFormatException e) {
+			System.out.println("Failed to parse port string");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-	    }
-	});
+	private void init() throws XMPPException, SmackException, IOException {
+		System.out.println("Initializing XMPP Command Line client...");
 
-	System.out.println("Sending chat messages...");
+		XMPPTCPConnectionConfiguration.Builder config = XMPPTCPConnectionConfiguration.builder();
+		config.setSecurityMode(ConnectionConfiguration.SecurityMode.required);
 
-	chat.sendMessage("<body><hello></body>");
+		config.setUsernameAndPassword(this.user, this.pwd);
+		config.setServiceName("gmail.com");
+		config.setHost("talk.google.com");
+		config.setPort(port);
+		config.setDebuggerEnabled(true);
+		// config.setSecurityMode(SecurityMode.disabled);
+		config.setConnectTimeout(1000 * 60 * 100);
 
-    }
+		AbstractXMPPConnection connection = new XMPPTCPConnection(config.build());
+		connection.connect();
+		System.out.println("Connected successfully");
 
-    public void setUser(String user) {
-	this.user = user;
-    }
+		connection.login();
 
-    public void setPwd(String pwd) {
-	this.pwd = pwd;
-    }
+		Chat chat = ChatManager.getInstanceFor(connection).createChat("akhil7490@gmail.com", new ChatMessageListener() {
+
+			@Override
+			public void processMessage(Chat arg0, Message msg) {
+				System.out.println("Received message: " + msg);
+
+			}
+		});
+
+		System.out.println("Sending chat messages...");
+
+		chat.sendMessage("<body><hello></body>");
+
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
 
 }
