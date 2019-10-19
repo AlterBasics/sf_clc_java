@@ -17,7 +17,7 @@ import abs.ixi.client.xmpp.JID;
 public class CommandLineClient {
 	private static final Logger LOGGER = Logger.getLogger(CommandLineClient.class.getSimpleName());
 
-	private static final String SERVER = "alterbasics.com";
+	private static final String SERVER = "142.93.208.62";
 	private static final int PORT = 5222;
 
 	public static void main(String[] args) {
@@ -26,7 +26,7 @@ public class CommandLineClient {
 		} catch (Exception e1) {
 			System.out.println("Failed to load SDK");
 			e1.printStackTrace();
-			return;
+			System.exit(-1);
 		}
 
 		try (Scanner sc = new Scanner(System.in)) {
